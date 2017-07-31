@@ -1,0 +1,6 @@
+News Site:
+    Index: Show Categories list and 5 last news by creation date
+    Categories: Display list of all categories, display category with related news by id
+    Task: Show list of all news, Show article by id with commets
+    Comments: Allow to create comment to news
+    Page: Static Page Controller – showing static pages (about us, contact form, 1 simple page)
