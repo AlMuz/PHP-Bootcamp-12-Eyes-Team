@@ -7,3 +7,4 @@
 </ul>
 
 {% include 'footer.php' %}
+

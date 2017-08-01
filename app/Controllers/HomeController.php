@@ -10,9 +10,13 @@ class HomeController extends AbstractController
         /** @var \NewsSite\Models\News $news */
         $news = $this->container->get('model.latestNews');
 
-        $listOfNews = $news->getLatestNews();
+        /** @var \NewsSite\Models\Categories $news */
+        $categories = $this->container->get('model.categories');
 
-        $templateVariables = ['news' => $listOfNews];
+        $listOfNews = $news->getLatestNews();
+        $listOfCategories = $categories->getNewsCategory();
+
+        $templateVariables = ['news' => $listOfNews, 'categories' => $listOfCategories];
         $template = 'home.view.php';
 
         return $this->render($template, $templateVariables);

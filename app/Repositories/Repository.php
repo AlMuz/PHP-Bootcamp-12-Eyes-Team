@@ -1,7 +1,5 @@
 <?php
-
 namespace NewsSite\Repositories;
-
 use Medoo\Medoo;
 
 abstract class Repository

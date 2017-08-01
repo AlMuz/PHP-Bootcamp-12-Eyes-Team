@@ -28,4 +28,6 @@ class NewsController extends AbstractController
 
         return $this->render($template, $templateVariables);
     }
+
+
 }

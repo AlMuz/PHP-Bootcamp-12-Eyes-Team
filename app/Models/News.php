@@ -27,4 +27,6 @@ class News implements NewsModelInterface
     {
         return $this->newsRepository->getLatestNews();
     }
+
+
 }
