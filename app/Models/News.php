@@ -18,8 +18,13 @@ class News implements NewsModelInterface
         return $this->newsRepository->getNews();
     }
 
-    public function singleGetNews($id): array
+    public function getSingleNew($id): array
     {
-        return $this->newsRepository->singleGetNews($id);
+        return $this->newsRepository->getSingleNew($id);
+    }
+
+    public function getLatestNews(): array
+    {
+        return $this->newsRepository->getLatestNews();
     }
 }

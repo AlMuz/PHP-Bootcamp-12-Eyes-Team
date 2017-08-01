@@ -33,6 +33,8 @@ class Application
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.singleNew', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
+        $containerBuilder->register('model.latestNews', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
 
         $containerBuilder->register('twig.loader', '\Twig_Loader_Filesystem')
             ->addArgument('%resource.views%');
