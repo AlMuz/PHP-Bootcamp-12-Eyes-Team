@@ -25,7 +25,7 @@ class CategoriesController extends AbstractController
         $ListOfCategory = $categories->getSingleCategory($id);
 
         $templateVariables = ['news' => $ListOfCategory];
-        $template = 'single.categories.view.php';
+        $template = 'news.view.php';
 
         return $this->render($template, $templateVariables);
     }
