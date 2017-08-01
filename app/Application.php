@@ -2,6 +2,8 @@
 namespace NewsSite;
 use NewsSite\Controllers\HomeController;
 use NewsSite\Controllers\NewsController;
+use NewsSite\Controllers\AboutController;
+use NewsSite\Controllers\ContactController;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -68,10 +70,14 @@ class Application
         $dispatcher = \FastRoute\simpleDispatcher(function(\FastRoute\RouteCollector $r) {
             $home = new HomeController($this->getContainer());
             $news = new NewsController($this->getContainer());
+            $about = new AboutController($this->getContainer());
+            $contact = new ContactController($this->getContainer());
 
             $r->addRoute('GET', '/', [$home, 'homeAction']);
             $r->addRoute('GET', '/news', [$news, 'newsAction']);
             $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
+            $r->addRoute('GET', '/about', [$about, 'aboutAction']);
+            $r->addRoute('GET', '/contact', [$contact, 'contactAction']);
         });
         return $dispatcher;
     }
