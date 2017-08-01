@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: student
- * Date: 01/08/2017
- * Time: 16:09
- */
+<h1>Category</h1>
+<ul>
+    {% for category in categories %}
+    <li><a href="category/{{category.category_id}}">{{category.title}}</a> </li>
+
+    {% endfor %}
+</ul>

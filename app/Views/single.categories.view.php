@@ -1,5 +1,6 @@
+{% set name = 'Single category page' %}
 {% include 'header.php' %}
-
+<hr>
 <ul>
     {% for new in news %}
     <h1>{{ new.title }}</h1>
