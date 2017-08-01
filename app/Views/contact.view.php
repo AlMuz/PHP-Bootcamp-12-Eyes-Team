@@ -13,12 +13,16 @@
         <label for="fsubject">Subject</label>
         <input id="fsubject" name="subject">
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="display: flex; flex-direction: column">
         <label for="fmessage">Message</label>
         <textarea name="message" id="fmessage" cols="30" rows="7"></textarea>
 
-        <input type="submit" value="Submit">
+        <div class="col-sm-12" style="display: flex; justify-content: center">
+            <input type="submit" value="Submit">
+        </div>
+
     </div>
+
 </form>
 
 {% include 'footer.php' %}
