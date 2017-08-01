@@ -2,8 +2,10 @@
 namespace NewsSite;
 use NewsSite\Controllers\HomeController;
 use NewsSite\Controllers\CategoriesController;
+use NewsSite\Controllers\NewsController;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
+
 class Application
 {
     private $dispatcher;
@@ -27,9 +29,21 @@ class Application
             );
         $containerBuilder->register('repository.categories', '\NewsSite\Repositories\CategoryRepo')
             ->addArgument(new Reference('database'));
+        $containerBuilder->register('repository.news', '\NewsSite\Repositories\NewsRepository')
+            ->addArgument(new Reference('database'));
 
         $containerBuilder->register('model.categories', '\NewsSite\Models\Categories')
             ->addArgument(new Reference('repository.categories'));
+
+
+        $containerBuilder->register('model.news', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
+        $containerBuilder->register('model.singleNew', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
+        $containerBuilder->register('model.singleCategory', '\NewsSite\Models\Categories')
+            ->addArgument(new Reference('repository.categories'));
+        $containerBuilder->register('model.latestNews', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
 
         $containerBuilder->register('twig.loader', '\Twig_Loader_Filesystem')
             ->addArgument('%resource.views%');
@@ -65,8 +79,14 @@ class Application
         $dispatcher = \FastRoute\simpleDispatcher(function(\FastRoute\RouteCollector $r) {
             $home = new HomeController($this->getContainer());
             $categories = new CategoriesController($this->getContainer());
+            $news = new NewsController($this->getContainer());
+
             $r->addRoute('GET', '/', [$home, 'homeAction']);
             $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
+            $r->addRoute('GET', '/category/{id}', [$categories, 'singleCategoryAction']);
+
+            $r->addRoute('GET', '/news', [$news, 'newsAction']);
+            $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
         });
         return $dispatcher;
     }

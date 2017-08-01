@@ -1,9 +1,8 @@
 {% include 'header.php' %}
 
 <ul>
-
     {% for category in categories %}
-    <li>{{git p}}</li>
+    <li>{{category.title}}</li>
     {% endfor %}
 </ul>
 

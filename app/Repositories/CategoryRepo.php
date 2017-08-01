@@ -2,12 +2,17 @@
 namespace NewsSite\Repositories;
 class CategoryRepo extends Repository
 {
+    /** this get all categories */
     public function getNewsCategory()
     {
-//        $category = $this->db->select('news', '*','category_id = 1');
-        echo 'dump in category repo';
-        dump($this->db->select('news', '*'));
-        return $this->db->select('news', '*');
+        return $this->db->select('categories', '*');
 
+    }
+
+    /** get the news about 1 category */
+    public function  getCategoriesNews($id)
+    {
+
+        return $this->db->select('news', '*', ['category_id' => $id]);
     }
 }
