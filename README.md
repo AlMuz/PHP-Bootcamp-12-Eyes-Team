@@ -10,7 +10,7 @@
 
 `use bootcamp;` - switch to new database
 
-`source {PATH_TO_SQL_FILE}` - source to database.sql file
+`source {PATH_TO_SQL_FILE}` - source to database.sql file .   (source /Users/student/a/database.sql)m
 
 `SELECT * FROM categories;` - let's check that all working fine
 
