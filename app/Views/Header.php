@@ -48,7 +48,7 @@
 <div class="container">
 
     <div class="blog-header">
-        <h1 class="blog-title">News</h1>
+        <h1 class="blog-title">{{ name }}</h1>
         <p class="lead blog-description">PHP Week.</p>
     </div>
 
