@@ -2,9 +2,11 @@
 
 namespace NewsSite;
 
-use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\HomeController;
+use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\NewsController;
+use NewsSite\Controllers\AboutController;
+use NewsSite\Controllers\ContactController;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -15,25 +17,6 @@ class Application
     public function __construct()
     {
         $this->dispatcher = $this->configureRoutes();
-    }
-
-    protected function configureRoutes()
-    {
-        $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
-            $home = new HomeController($this->getContainer());
-            $categories = new CategoriesController($this->getContainer());
-            $news = new NewsController($this->getContainer());
-
-            $r->addRoute('GET', '/', [$home, 'homeAction']);
-
-            $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
-            $r->addRoute('GET', '/category/{id}', [$categories, 'singleCategoryAction']);
-
-            $r->addRoute('GET', '/news', [$news, 'newsAction']);
-            $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
-        });
-
-        return $dispatcher;
     }
 
     public function getContainer(): Container
@@ -54,15 +37,16 @@ class Application
             ->addArgument(new Reference('database'));
         $containerBuilder->register('repository.news', '\NewsSite\Repositories\NewsRepository')
             ->addArgument(new Reference('database'));
+        $containerBuilder->register('repository.comments', '\NewsSite\Repositories\CommentRepository')
+            ->addArgument(new Reference('database'));
 
         $containerBuilder->register('model.categories', '\NewsSite\Models\Categories')
             ->addArgument(new Reference('repository.categories'));
-
-
         $containerBuilder->register('model.news', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.singleNew', '\NewsSite\Models\News')
-            ->addArgument(new Reference('repository.news'));
+            ->addArgument(new Reference('repository.news'))
+            ->addArgument(new Reference('repository.comments'));;
         $containerBuilder->register('model.singleCategory', '\NewsSite\Models\Categories')
             ->addArgument(new Reference('repository.categories'));
         $containerBuilder->register('model.latestNews', '\NewsSite\Models\News')
@@ -97,5 +81,25 @@ class Application
                 break;
         }
         return $response;
+    }
+
+    protected function configureRoutes()
+    {
+        $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
+            $home = new HomeController($this->getContainer());
+            $categories = new CategoriesController($this->getContainer());
+            $news = new NewsController($this->getContainer());
+            $about = new AboutController($this->getContainer());
+            $contact = new ContactController($this->getContainer());
+
+            $r->addRoute('GET', '/', [$home, 'homeAction']);
+            $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
+            $r->addRoute('GET', '/category/{id}', [$categories, 'singleCategoryAction']);
+            $r->addRoute('GET', '/news', [$news, 'newsAction']);
+            $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
+            $r->addRoute('GET', '/about', [$about, 'aboutAction']);
+            $r->addRoute('GET', '/contact', [$contact, 'contactAction']);
+        });
+        return $dispatcher;
     }
 }

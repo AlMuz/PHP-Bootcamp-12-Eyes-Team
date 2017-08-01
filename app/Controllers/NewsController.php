@@ -17,13 +17,15 @@ class NewsController extends AbstractController
         return $this->render($template, $templateVariables);
     }
 
-    public function singleNewsAction($id) {
+    public function singleNewsAction($id)
+    {
         /** @var \NewsSite\Models\News $news */
         $news = $this->container->get('model.singleNew');
 
         $listOfNews = $news->getSingleNew($id);
+        $listOfComments = $news->getComments($id);
 
-        $templateVariables = ['news' => $listOfNews];
+        $templateVariables = ['news' => $listOfNews, 'comments' => $listOfComments];
         $template = 'single.news.view.php';
 
         return $this->render($template, $templateVariables);
