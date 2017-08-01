@@ -1,5 +1,13 @@
+{% set name = 'Home' %}
 {% include 'header.php' %}
 
+
+
+<ul>
+    {% for new in news %}
+    <li><a href="news/{{new.news_id}}">{{ new.title }}</a> | <small>{{ new.author }} | {{ new.created_at }}</small></li>
+    {% endfor %}
+</ul>
 <h1>Our Latest News | <a href="/news">See All News</a></h1>
 <div class="row">
 
@@ -33,4 +41,4 @@
         </div>
 
 
-        {% include 'footer.php' %}
+{% include 'footer.php' %}
