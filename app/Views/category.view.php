@@ -1,7 +1,10 @@
 {% include 'header.php' %}
 
 <ul>
-    123
+
+    {% for category in categories %}
+    <li>{{git p}}</li>
+    {% endfor %}
 </ul>
 
 {% include 'footer.php' %}

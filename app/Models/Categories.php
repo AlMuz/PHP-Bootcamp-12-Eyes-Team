@@ -1,7 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: student
- * Date: 01/08/2017
- * Time: 10:44
- */
+namespace NewsSite\Models;
+use NewsSite\Repositories\CategoryRepo;
+class Categories implements CategoriesInterface
+{
+    private $CategoryRepo;
+
+    public function __construct(CategoryRepo $CategoryRepo)
+    {
+        $this->CategoryRepo = $CategoryRepo;
+    }
+
+    public function getNewsCategory() : array
+    {
+        return $this->CategoryRepo->getNewsCategory();
+    }
+}

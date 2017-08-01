@@ -1,5 +1,5 @@
 <?php
-namespace PHPBootcamp\Repositories;
+namespace NewsSite\Repositories;
 use Medoo\Medoo;
 abstract class Repository
 {

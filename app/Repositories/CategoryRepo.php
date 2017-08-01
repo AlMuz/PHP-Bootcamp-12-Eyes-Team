@@ -1,7 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: student
- * Date: 01/08/2017
- * Time: 11:00
- */
+namespace NewsSite\Repositories;
+class CategoryRepo extends Repository
+{
+    public function getNewsCategory()
+    {
+//        $category = $this->db->select('news', '*','category_id = 1');
+        echo 'dump in category repo';
+        dump($this->db->select('news', '*'));
+        return $this->db->select('news', '*');
+
+    }
+}

@@ -14,6 +14,7 @@ abstract class AbstractController implements ControllerInterface
     }
     public function render(string $template, array $content = []) : string
     {
+        dump($content);
         return $this->twig->render($template, $content);
     }
 }
