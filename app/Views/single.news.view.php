@@ -1,3 +1,10 @@
+{% set name = "" %}
+{% for new in news %}
+
+    {% set name = new.title %}
+
+{% endfor %}
+
 {% include 'header.php' %}
 
 {% for new in news %}
