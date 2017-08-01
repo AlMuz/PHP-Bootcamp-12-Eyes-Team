@@ -21,11 +21,13 @@ class NewsController extends AbstractController
         /** @var \NewsSite\Models\News $news */
         $news = $this->container->get('model.singleNew');
 
-        $listOfNews = $news->singleGetNews($id);
+        $listOfNews = $news->getSingleNew($id);
 
         $templateVariables = ['news' => $listOfNews];
         $template = 'single.news.view.php';
 
         return $this->render($template, $templateVariables);
     }
+
+
 }
