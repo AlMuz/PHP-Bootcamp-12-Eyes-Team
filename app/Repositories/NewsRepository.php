@@ -8,4 +8,9 @@ class NewsRepository extends Repository
     {
         return $this->db->select('news', '*');
     }
+
+    public function singleGetNews($id)
+    {
+        return $this->db->select('news', 'body', ['news_id' => $id]);
+    }
 }

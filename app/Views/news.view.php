@@ -2,7 +2,7 @@
 
 <ul>
     {% for new in news %}
-    <li><a href="#">{{ new.title }}</a></li>
+    <li><a href="news/{{new.news_id}}">{{ new.title }}</a></li>
     {% endfor %}
 </ul>
 

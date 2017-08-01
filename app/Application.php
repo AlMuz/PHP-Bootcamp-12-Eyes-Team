@@ -28,7 +28,10 @@ class Application
             );
         $containerBuilder->register('repository.news', '\NewsSite\Repositories\NewsRepository')
             ->addArgument(new Reference('database'));
+
         $containerBuilder->register('model.news', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
+        $containerBuilder->register('model.singleNew', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
 
         $containerBuilder->register('twig.loader', '\Twig_Loader_Filesystem')
@@ -68,6 +71,7 @@ class Application
 
             $r->addRoute('GET', '/', [$home, 'homeAction']);
             $r->addRoute('GET', '/news', [$news, 'newsAction']);
+            $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
         });
         return $dispatcher;
     }
