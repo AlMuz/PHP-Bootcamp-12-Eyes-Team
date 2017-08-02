@@ -24,7 +24,8 @@ class CommentRepository extends Repository
                 [
                     'news_id' => $news_id,
                     'author' => $author,
-                    'body' => $comment
+                    'body' => $comment,
+                    'created_at' => date("Y-m-d H:i:s")
                 ]
             );
 

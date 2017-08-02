@@ -1,19 +1,22 @@
-{% include 'header.php' %}
-
 {% set name = "" %}
 {% for new in news %}
-
 {% set name = new.title %}
-{% set id = new.news_id %}
+{% endfor %}
+{% include 'header.php' %}
 
-<small>Created by: {{ new.author }} / {{ new.created_at }}</small></br>
+
+
+
+
+{% for new in news %}
+<small>Created by: {{ new.author }} / {{ new.created_at|time_diff }}</small></br>
 
 {% if new.url|length > 0 %}
 <img src="{{ new.url }}" style="height: 50%; width: 50%"/>
 {% endif %}
 
 <p>{{ new.body }}</p>
-
+{% endfor %}
 <hr/>
 
 <h3>Add A Comment</h3>
@@ -30,7 +33,7 @@
         <input type="submit" value="Submit">
     </div>
 </form>
-{% endfor %}
+
 
 <hr/>
 
