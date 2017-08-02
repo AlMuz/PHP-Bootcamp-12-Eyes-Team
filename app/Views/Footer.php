@@ -16,6 +16,7 @@
     <p>Blog template built for
         <a href="http://getbootstrap.com">Bootstrap</a>
         by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>Icon made by Freepik from <a href="https://www.flaticon.com/">www.flaticon.com</a </p>
     <p>
         <a href="#">Back to top</a>
     </p>

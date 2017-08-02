@@ -7,6 +7,7 @@ use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\NewsController;
 use NewsSite\Controllers\AboutController;
 use NewsSite\Controllers\ContactController;
+use NewsSite\Controllers\StaticPageController;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
@@ -89,17 +90,15 @@ class Application
             $home = new HomeController($this->getContainer());
             $categories = new CategoriesController($this->getContainer());
             $news = new NewsController($this->getContainer());
-            $about = new AboutController($this->getContainer());
-            $contact = new ContactController($this->getContainer());
+            $staticPage = new StaticPageController($this->getContainer());
 
             $r->addRoute('GET', '/', [$home, 'homeAction']);
             $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
             $r->addRoute('GET', '/category/{id}', [$news, 'singleCategoryAction']);
             $r->addRoute('GET', '/news', [$news, 'newsAction']);
             $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
-            $r->addRoute('GET', '/about', [$about, 'aboutAction']);
-            $r->addRoute('GET', '/contact', [$contact, 'contactAction']);
-
+            $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
+            $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
         });
         return $dispatcher;
     }

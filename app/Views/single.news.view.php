@@ -38,7 +38,7 @@
 <h3>Comments</h3>
 {% for comment in comments %}
 <p>{{ comment.body }}</p>
-<small>Submitted by: {{ comment.author }} / {{ comment.created_at }}</small>
+<small>Submitted by: {{ comment.author }} / {{ comment.created_at|time_diff }}</small>
 {% endfor %}
 
 

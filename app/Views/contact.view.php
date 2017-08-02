@@ -1,8 +1,6 @@
 {% set name = 'Contacts' %}
 {% include 'header.php' %}
 
-<h2>Contact Us</h2>
-
 <form name="contactForm" method="post" action="">
     <div class="col-sm-6" style="display: flex; flex-direction: column">
         <label for="fname">Your Full Name</label>
