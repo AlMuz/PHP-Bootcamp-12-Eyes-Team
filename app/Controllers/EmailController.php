@@ -4,7 +4,6 @@ namespace NewsSite\Controllers;
 
 class EmailController extends StaticPageController
 {
-
     public function emailAction()
     {
         /** @var \NewsSite\Models\Email $email */
@@ -13,7 +12,5 @@ class EmailController extends StaticPageController
         $email->sendEmail();
 
         return $this->contactAction();
-
     }
-
 }

@@ -4,7 +4,6 @@ namespace NewsSite\Repositories;
 
 class CommentRepository extends Repository
 {
-
     public function getComments($id)
     {
         return $this->db->select('comments', '*', ['news_id' => $id]);
@@ -12,7 +11,6 @@ class CommentRepository extends Repository
 
     public function addComment($id)
     {
-
         if (isset($_POST['author']) && isset($_POST['comment'])) {
 
             $news_id = $id;
@@ -32,7 +30,6 @@ class CommentRepository extends Repository
         }
 
         return "Something went wrong ..";
-
     }
 
     private function testInput($data)
@@ -43,5 +40,4 @@ class CommentRepository extends Repository
 
         return $data;
     }
-
 }

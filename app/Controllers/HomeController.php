@@ -4,7 +4,6 @@ namespace NewsSite\Controllers;
 
 class HomeController extends AbstractController
 {
-
     public function homeAction()
     {
         /** @var \NewsSite\Models\News $news */

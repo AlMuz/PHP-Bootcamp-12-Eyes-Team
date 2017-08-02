@@ -2,13 +2,13 @@
 
 namespace NewsSite\Models;
 
-use NewsSite\Repositories\CategoryRepo;
+use NewsSite\Repositories\CategoryRepository;
 
 class Categories implements CategoriesInterface
 {
     private $CategoryRepo;
 
-    public function __construct(CategoryRepo $CategoryRepo)
+    public function __construct(CategoryRepository $CategoryRepo)
     {
         $this->CategoryRepo = $CategoryRepo;
     }
@@ -18,7 +18,8 @@ class Categories implements CategoriesInterface
         return $this->CategoryRepo->getNewsCategory();
     }
 
-    public function addCategory() {
+    public function addCategory()
+    {
         return $this->CategoryRepo->addCategory();
     }
 }

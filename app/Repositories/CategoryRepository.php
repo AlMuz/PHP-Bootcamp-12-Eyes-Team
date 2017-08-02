@@ -2,7 +2,7 @@
 
 namespace NewsSite\Repositories;
 
-class CategoryRepo extends Repository
+class CategoryRepository extends Repository
 {
     /** this get all categories */
     public function getNewsCategory(): array
@@ -12,8 +12,9 @@ class CategoryRepo extends Repository
 
     public function addCategory()
     {
-        return $this->db->insert('categories',[
+        return $this->db->insert('categories', [
             'title' => $_POST["category"],
-            'created_at' => date("Y-m-d H:i:s")]);
+            'created_at' => date("Y-m-d H:i:s")
+        ]);
     }
 }

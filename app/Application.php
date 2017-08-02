@@ -2,9 +2,9 @@
 
 namespace NewsSite;
 
+use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\EmailController;
 use NewsSite\Controllers\HomeController;
-use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\NewsController;
 use NewsSite\Controllers\StaticPageController;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -17,6 +17,33 @@ class Application
     public function __construct()
     {
         $this->dispatcher = $this->configureRoutes();
+    }
+
+    protected function configureRoutes()
+    {
+        $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
+            $home = new HomeController($this->getContainer());
+            $categories = new CategoriesController($this->getContainer());
+            $news = new NewsController($this->getContainer());
+            $staticPage = new StaticPageController($this->getContainer());
+            $email = new EmailController($this->getContainer());
+
+            $r->addRoute('GET', '/', [$home, 'homeAction']);
+            $r->addRoute('GET', '/categories', [$categories, 'CategoryAction']);
+            $r->addRoute('GET', '/categories/add', [$staticPage, 'addCategoryAction']);
+            $r->addRoute('POST', '/categories/add', [$categories, 'addCategoryAction']);
+            $r->addRoute('GET', '/categories/{id}', [$news, 'singleCategoryAction']);
+            $r->addRoute('GET', '/news', [$news, 'newsAction']);
+            $r->addRoute('GET', '/news/add', [$staticPage, 'addNewsAction']);
+            $r->addRoute('POST', '/news/add', [$news, 'addNewsAction']);
+            $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
+            $r->addRoute('POST', '/news/{id}/new-comment', [$news, 'newCommentAction']);
+            $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
+            $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
+            $r->addRoute('POST', '/send-email', [$email, 'emailAction']);
+        });
+
+        return $dispatcher;
     }
 
     public function getContainer(): Container
@@ -33,31 +60,38 @@ class Application
                     'password' => ''
                 ]
             );
-        $containerBuilder->register('repository.categories', '\NewsSite\Repositories\CategoryRepo')
+
+        // Databases
+        $containerBuilder->register('repository.categories', '\NewsSite\Repositories\CategoryRepository')
             ->addArgument(new Reference('database'));
         $containerBuilder->register('repository.news', '\NewsSite\Repositories\NewsRepository')
             ->addArgument(new Reference('database'));
         $containerBuilder->register('repository.comments', '\NewsSite\Repositories\CommentRepository')
             ->addArgument(new Reference('database'));
 
-        $containerBuilder->register('model.categories', '\NewsSite\Models\Categories')
-            ->addArgument(new Reference('repository.categories'));
+        // News
         $containerBuilder->register('model.news', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.singleNew', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'))
             ->addArgument(new Reference('repository.comments'));
-        $containerBuilder->register('model.singleCategory', '\NewsSite\Models\News')
-            ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.latestNews', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.addNews', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
+
+        // Categories
+        $containerBuilder->register('model.categories', '\NewsSite\Models\Categories')
+            ->addArgument(new Reference('repository.categories'));
+        $containerBuilder->register('model.singleCategory', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.addCategory', '\NewsSite\Models\Categories')
             ->addArgument(new Reference('repository.categories'));
+
+        // Email
         $containerBuilder->register('model.email', '\NewsSite\Models\Email');
 
-
+        // Twig
         $containerBuilder->register('twig.loader', '\Twig_Loader_Filesystem')
             ->addArgument('%resource.views%');
         $containerBuilder->register('twig.env', '\Twig_Environment')
@@ -86,32 +120,7 @@ class Application
                 $response = call_user_func_array($handler, $vars);
                 break;
         }
+
         return $response;
-    }
-
-    protected function configureRoutes()
-    {
-        $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
-            $home = new HomeController($this->getContainer());
-            $categories = new CategoriesController($this->getContainer());
-            $news = new NewsController($this->getContainer());
-            $staticPage = new StaticPageController($this->getContainer());
-            $email = new EmailController($this->getContainer());
-
-            $r->addRoute('GET', '/', [$home, 'homeAction']);
-            $r->addRoute('GET', '/categories', [$categories, 'CategoryAction']);
-            $r->addRoute('GET', '/categories/add', [$staticPage, 'addCategoryAction']);
-            $r->addRoute('POST', '/categories/add', [$categories, 'addCategoryAction']);
-            $r->addRoute('GET', '/categories/{id}', [$news, 'singleCategoryAction']);
-            $r->addRoute('GET', '/news', [$news, 'newsAction']);
-            $r->addRoute('GET', '/news/add', [$staticPage, 'addNewsAction']);
-            $r->addRoute('POST', '/news/add', [$news, 'addNewsAction']);
-            $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
-            $r->addRoute('POST', '/news/{id}/new-comment', [$news, 'newCommentAction']);
-            $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
-            $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
-            $r->addRoute('POST', '/send-email', [$email, 'emailAction']);
-        });
-        return $dispatcher;
     }
 }

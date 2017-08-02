@@ -2,9 +2,7 @@
 {% include 'header.php' %}
 
 <div class="row">
-
     <div class="col-md-8">
-
         <h1>Our Latest News | <a href="/news">See All News</a></h1>
 
         <ul>
@@ -27,6 +25,5 @@
         </ul>
     </div>
 </div>
-
 
 {% include 'footer.php' %}

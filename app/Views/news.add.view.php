@@ -18,6 +18,7 @@
 
         <input type="hidden" name="news_id" value="{{id}}">
     </div>
+
     <div class="col-sm-6">
         <label for="body">News</label>
         <textarea name="body" id="body" cols="30" rows="7" required></textarea>
