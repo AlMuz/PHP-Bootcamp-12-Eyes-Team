@@ -12,4 +12,6 @@ interface NewsModelInterface
 
     public function getComments($id): array;
 
+    public function getSingleCategory($id): array ;
+
 }
