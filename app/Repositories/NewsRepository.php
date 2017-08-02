@@ -22,6 +22,6 @@ class NewsRepository extends Repository
     /** get the news about 1 category */
     public function getCategoriesNews($id)
     {
-        return $this->db->select('news', '*', ['category_id' => $id]);
+        return $this->db->select('news', '*', ['category_id' => $id, 'ORDER' => ['created_at' => 'DESC']]);
     }
 }
