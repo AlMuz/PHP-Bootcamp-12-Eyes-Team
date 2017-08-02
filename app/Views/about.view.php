@@ -13,7 +13,6 @@
     et malesuada fames ac ante ipsum primis in faucibus. Proin aliquam malesuada auctor. Quisque a dolor augue. Nunc
     euismod nisi vitae ornare sagittis. Proin in nibh rhoncus ligula tincidunt fermentum. Donec aliquet posuere magna in
     convallis.
-
 </p>
 
 {% include 'footer.php' %}
