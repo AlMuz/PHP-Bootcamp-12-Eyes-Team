@@ -11,12 +11,13 @@ class NewsRepository extends Repository
 
     public function addNews()
     {
-        return $this->db->insert('news',[
+        return $this->db->insert('news', [
             'category_id' => $_POST["category"],
             'title' => $_POST["title"],
             'body' => $_POST["body"],
             'author' => $_POST["author"],
-            'created_at' => date("Y-m-d H:i:s")]);
+            'created_at' => date("Y-m-d H:i:s")
+        ]);
     }
 
     public function getSingleNew($id)

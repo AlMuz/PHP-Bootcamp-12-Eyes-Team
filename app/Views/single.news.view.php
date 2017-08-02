@@ -33,16 +33,16 @@
     </div>
 </form>
 
-
 <hr/>
 
 <h3>Comments</h3>
+
 {% for comment in comments %}
 <div style="border: 1px solid black; border-left: 0; border-right: 0; border-bottom: 0; margin-bottom: 10px;">
     <p>{{ comment.body }}</p>
+
     <small><em>Submitted by: {{ comment.author }} / {{ comment.created_at|time_diff }}</em></small>
 </div>
 {% endfor %}
-
 
 {% include 'footer.php' %}

@@ -4,7 +4,6 @@ namespace NewsSite\Controllers;
 
 class CategoriesController extends AbstractController
 {
-
     public function CategoryAction()
     {
         /** @var \NewsSite\Models\Categories $category */

@@ -4,10 +4,8 @@ namespace NewsSite\Models;
 
 class Email
 {
-
     public function sendEmail()
     {
-
         $to = "newssite@12eyes.com";
 
         $name = $this->testInput($_POST['name']);
@@ -25,7 +23,6 @@ class Email
 
         $confirmation = "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
         echo "<script type='text/javascript'>alert('$confirmation');</script>";
-
     }
 
     private function testInput($data)
@@ -36,5 +33,4 @@ class Email
 
         return $data;
     }
-
 }

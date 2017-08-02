@@ -5,7 +5,7 @@
 <form name="newsForm" method="post" action="/categories/add">
     <div class="col-sm-6" style="display: flex; flex-direction: column">
         <label for="category">Category</label>
-        <input id="category" name="category">
+        <input id="category" name="category" required>
     </div>
     <div class="col-sm-6">
         <input type="submit" value="Submit">

@@ -2,8 +2,8 @@
 
 namespace NewsSite\Models;
 
-use NewsSite\Repositories\NewsRepository;
 use NewsSite\Repositories\CommentRepository;
+use NewsSite\Repositories\NewsRepository;
 
 class News implements NewsModelInterface
 {
@@ -50,6 +50,4 @@ class News implements NewsModelInterface
     {
         return $this->commentRepository->addComment($id);
     }
-
-
 }
