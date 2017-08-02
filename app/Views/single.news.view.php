@@ -9,7 +9,7 @@
 
 {% for new in news %}
 
-<small>Created by: {{ new.author }} / {{ new.created_at }}</small>
+<small>Created by: {{ new.author }} / {{ new.created_at|time_diff }}</small>
 <p>{{ new.body }}</p>
 {% endfor %}
 
@@ -33,7 +33,7 @@
 <h3>Comments</h3>
 {% for comment in comments %}
 <p>{{ comment.body }}</p>
-<small>Submitted by: {{ comment.author }} / {{ comment.created_at }}</small>
+<small>Submitted by: {{ comment.author }} / {{ comment.created_at|time_diff }}</small>
 {% endfor %}
 
 
