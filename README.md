@@ -1,5 +1,5 @@
 # 12 Eyes Team News Site
-Simple News Site project.
+News Site for displaying and adding categorized news articles with an option of adding comments for each article.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
