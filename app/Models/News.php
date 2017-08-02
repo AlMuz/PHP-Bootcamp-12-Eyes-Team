@@ -45,4 +45,11 @@ class News implements NewsModelInterface
     {
         return $this->newsRepository->getCategoriesNews($id);
     }
+
+    public function addComment($id)
+    {
+        return $this->commentRepository->addComment($id);
+    }
+
+
 }

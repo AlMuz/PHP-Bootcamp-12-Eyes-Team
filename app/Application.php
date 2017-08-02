@@ -5,8 +5,6 @@ namespace NewsSite;
 use NewsSite\Controllers\HomeController;
 use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\NewsController;
-use NewsSite\Controllers\AboutController;
-use NewsSite\Controllers\ContactController;
 use NewsSite\Controllers\StaticPageController;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -101,6 +99,7 @@ class Application
             $r->addRoute('GET', '/news', [$news, 'newsAction']);
             $r->addRoute('GET', '/news/add', [$staticPage, 'addNewsAction']);
             $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
+            $r->addRoute('POST', '/news/{id}/new-comment', [$news, 'newCommentAction']);
             $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
             $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
             $r->addRoute('POST', '/news/add', [$news, 'addNewsAction']);
