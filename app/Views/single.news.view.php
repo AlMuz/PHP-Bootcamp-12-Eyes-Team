@@ -6,7 +6,12 @@
 {% set name = new.title %}
 {% set id = new.news_id %}
 
-<small>Created by: {{ new.author }} / {{ new.created_at|time_diff }}</small>
+<small>Created by: {{ new.author }} / {{ new.created_at }}</small></br>
+
+{% if new.url|length > 0 %}
+<img src="{{ new.url }}" style="height: 50%; width: 50%"/>
+{% endif %}
+
 <p>{{ new.body }}</p>
 
 <hr/>
