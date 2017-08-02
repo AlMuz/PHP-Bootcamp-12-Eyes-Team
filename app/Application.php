@@ -27,7 +27,7 @@ class Application
             ->addArgument(
                 [
                     'database_type' => 'mysql',
-                    'database_name' => 'bootcamp',
+                    'database_name' => 'twelveeyes',
                     'server' => 'localhost',
                     'username' => 'root',
                     'password' => ''
@@ -99,6 +99,7 @@ class Application
             $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
             $r->addRoute('GET', '/about', [$about, 'aboutAction']);
             $r->addRoute('GET', '/contact', [$contact, 'contactAction']);
+
         });
         return $dispatcher;
     }

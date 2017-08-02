@@ -10,5 +10,4 @@ class AboutController extends AbstractController
         $template = 'about.view.php';
         return $this->render($template, []);
     }
-
 }

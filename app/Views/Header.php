@@ -6,9 +6,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.pngç">
+    <link rel="icon" href="../../favicon.png">
 
     <title>12 Eyes Team News Site</title>
+
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +50,7 @@
 
     <div class="blog-header">
         <h1 class="blog-title">{{ name }}</h1>
-        <p class="lead blog-description">12 EYES TEAM</p>
+        <p class="lead blog-description ">12 EYES TEAM</p>
     </div>
 
     <div class="row">
