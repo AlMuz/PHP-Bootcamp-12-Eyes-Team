@@ -1,13 +1,10 @@
+{% include 'header.php' %}
+
 {% set name = "" %}
 {% for new in news %}
 
 {% set name = new.title %}
-
-{% endfor %}
-
-{% include 'header.php' %}
-
-{% for new in news %}
+{% set id = new.news_id %}
 
 <small>Created by: {{ new.author }} / {{ new.created_at }}</small></br>
 
@@ -16,22 +13,24 @@
 {% endif %}
 
 <p>{{ new.body }}</p>
-{% endfor %}
 
 <hr/>
 
 <h3>Add A Comment</h3>
-<form action="" method="post">
+<form action="/news/{{id}}/new-comment" method="POST">
     <div style="display: flex; flex-direction: column">
-        <label for="username">Your Name</label>
-        <input id="username" name="username">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="author" required>
 
         <label for="comment">Your Comment</label>
-        <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
+        <textarea name="comment" id="comment" cols="30" rows="5" required></textarea>
+
+        <input type="hidden" name="news_id" value="{{id}}">
 
         <input type="submit" value="Submit">
     </div>
 </form>
+{% endfor %}
 
 <hr/>
 
