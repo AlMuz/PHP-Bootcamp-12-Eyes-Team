@@ -1,3 +1,4 @@
+{% set name = 'Contacts' %}
 {% include 'header.php' %}
 
 <h2>Contact Us</h2>

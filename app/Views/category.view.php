@@ -1,3 +1,4 @@
+{% set name = 'Categories' %}
 {% include 'header.php' %}
 
 <ul>
