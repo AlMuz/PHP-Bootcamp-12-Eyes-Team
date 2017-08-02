@@ -3,7 +3,6 @@
 namespace NewsSite;
 
 use NewsSite\Controllers\CategoriesController;
-use NewsSite\Controllers\EmailController;
 use NewsSite\Controllers\HomeController;
 use NewsSite\Controllers\NewsController;
 use NewsSite\Controllers\StaticPageController;
