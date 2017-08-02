@@ -1,4 +1,9 @@
-{% set name = 'Category' %}
+{% set name = '' %}
+{% for category in categories %}
+
+{% set name = category.title %}
+
+{% endfor %}
 {% include 'header.php' %}
 
 <ul>

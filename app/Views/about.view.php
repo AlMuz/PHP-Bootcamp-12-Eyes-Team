@@ -1,3 +1,4 @@
+{% set name = 'About us' %}
 {% include 'header.php' %}
 
 <h2>About Us</h2>
