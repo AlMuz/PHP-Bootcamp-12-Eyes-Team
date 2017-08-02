@@ -18,16 +18,5 @@ class CategoriesController extends AbstractController
         return $this->render($template, $templateVariables);
     }
 
-    public function singleCategoryAction($id) {
-        /** @var \NewsSite\Models\Categories $categories */
-        $categories = $this->container->get('model.singleCategory');
-
-        $ListOfCategory = $categories->getSingleCategory($id);
-
-        $templateVariables = ['news' => $ListOfCategory];
-        $template = 'news.view.php';
-
-        return $this->render($template, $templateVariables);
-    }
 
 }

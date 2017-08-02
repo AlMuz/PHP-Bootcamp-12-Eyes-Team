@@ -46,9 +46,9 @@ class Application
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.singleNew', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'))
-            ->addArgument(new Reference('repository.comments'));;
-        $containerBuilder->register('model.singleCategory', '\NewsSite\Models\Categories')
-            ->addArgument(new Reference('repository.categories'));
+            ->addArgument(new Reference('repository.comments'));
+        $containerBuilder->register('model.singleCategory', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.latestNews', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
 
@@ -94,7 +94,7 @@ class Application
 
             $r->addRoute('GET', '/', [$home, 'homeAction']);
             $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
-            $r->addRoute('GET', '/category/{id}', [$categories, 'singleCategoryAction']);
+            $r->addRoute('GET', '/category/{id}', [$news, 'singleCategoryAction']);
             $r->addRoute('GET', '/news', [$news, 'newsAction']);
             $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
             $r->addRoute('GET', '/about', [$about, 'aboutAction']);

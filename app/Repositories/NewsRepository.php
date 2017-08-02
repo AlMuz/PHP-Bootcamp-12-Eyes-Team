@@ -18,4 +18,10 @@ class NewsRepository extends Repository
     {
         return $this->db->select('news', '*', ['LIMIT' => 5, 'ORDER' => ['created_at' => 'DESC']]);
     }
+
+    /** get the news about 1 category */
+    public function  getCategoriesNews($id)
+    {
+        return $this->db->select('news', '*', ['category_id' => $id]);
+    }
 }
