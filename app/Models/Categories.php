@@ -18,5 +18,7 @@ class Categories implements CategoriesInterface
         return $this->CategoryRepo->getNewsCategory();
     }
 
-
+    public function addCategory() {
+        return $this->CategoryRepo->addCategory();
+    }
 }

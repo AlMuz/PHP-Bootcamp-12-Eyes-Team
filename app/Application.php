@@ -52,6 +52,8 @@ class Application
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.addNews', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
+        $containerBuilder->register('model.addCategory', '\NewsSite\Models\Categories')
+            ->addArgument(new Reference('repository.categories'));
 
 
         $containerBuilder->register('twig.loader', '\Twig_Loader_Filesystem')
@@ -94,15 +96,17 @@ class Application
             $staticPage = new StaticPageController($this->getContainer());
 
             $r->addRoute('GET', '/', [$home, 'homeAction']);
-            $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
-            $r->addRoute('GET', '/category/{id}', [$news, 'singleCategoryAction']);
+            $r->addRoute('GET', '/categories', [$categories, 'CategoryAction']);
+            $r->addRoute('GET', '/categories/add', [$staticPage, 'addCategoryAction']);
+            $r->addRoute('POST', '/categories/add', [$categories, 'addCategoryAction']);
+            $r->addRoute('GET', '/categories/{id}', [$news, 'singleCategoryAction']);
             $r->addRoute('GET', '/news', [$news, 'newsAction']);
             $r->addRoute('GET', '/news/add', [$staticPage, 'addNewsAction']);
+            $r->addRoute('POST', '/news/add', [$news, 'addNewsAction']);
             $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
             $r->addRoute('POST', '/news/{id}/new-comment', [$news, 'newCommentAction']);
             $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
             $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
-            $r->addRoute('POST', '/news/add', [$news, 'addNewsAction']);
         });
         return $dispatcher;
     }

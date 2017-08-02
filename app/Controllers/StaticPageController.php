@@ -16,7 +16,8 @@ class StaticPageController extends AbstractController
         return $this->render($template);
     }
 
-    public function addNewsAction() {
+    public function addNewsAction()
+    {
         /** @var \NewsSite\Models\Categories $categories */
         $categories = $this->container->get('model.categories');
 
@@ -26,5 +27,11 @@ class StaticPageController extends AbstractController
         $template = 'news.add.view.php';
 
         return $this->render($template, $templateVariables);
+    }
+
+    public function addCategoryAction()
+    {
+        $template = 'category.add.view.php';
+        return $this->render($template);
     }
 }

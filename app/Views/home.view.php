@@ -18,13 +18,12 @@
         </ul>
     </div>
     <div class="col-md-4">
-        <h1><a href="/category">Categories</a></h1>
+        <h1><a href="/categories">Categories</a></h1>
         <ul>
             {% for category in categories %}
-            <li><a href="category/{{category.category_id}}">{{category.title}}</a></li>
+            <li><a href="categories/{{category.category_id}}">{{category.title}}</a></li>
 
             {% endfor %}
-
         </ul>
     </div>
 </div>
