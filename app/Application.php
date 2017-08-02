@@ -2,6 +2,7 @@
 
 namespace NewsSite;
 
+use NewsSite\Controllers\EmailController;
 use NewsSite\Controllers\HomeController;
 use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\NewsController;
@@ -26,7 +27,7 @@ class Application
             ->addArgument(
                 [
                     'database_type' => 'mysql',
-                    'database_name' => 'twelveeyes',
+                    'database_name' => 'bootcamp',
                     'server' => 'localhost',
                     'username' => 'root',
                     'password' => ''
@@ -52,6 +53,7 @@ class Application
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.addNews', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
+        $containerBuilder->register('model.email', '\NewsSite\Models\Email');
 
 
         $containerBuilder->register('twig.loader', '\Twig_Loader_Filesystem')
@@ -92,6 +94,7 @@ class Application
             $categories = new CategoriesController($this->getContainer());
             $news = new NewsController($this->getContainer());
             $staticPage = new StaticPageController($this->getContainer());
+            $email = new EmailController($this->getContainer());
 
             $r->addRoute('GET', '/', [$home, 'homeAction']);
             $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
@@ -103,6 +106,7 @@ class Application
             $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
             $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
             $r->addRoute('POST', '/news/add', [$news, 'addNewsAction']);
+            $r->addRoute('POST', '/send-email', [$email, 'emailAction']);
         });
         return $dispatcher;
     }
