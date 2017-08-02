@@ -16,8 +16,8 @@ class CommentRepository extends Repository
         if (isset($_POST['author']) && isset($_POST['comment'])) {
 
             $news_id = $id;
-            $author = $_POST['author'];
-            $comment = $_POST['comment'];
+            $author = $this->testInput($_POST['author']);
+            $comment = $this->testInput($_POST['comment']);
 
             $this->db->insert(
                 'comments',
@@ -32,6 +32,15 @@ class CommentRepository extends Repository
 
         return "Something went wrong ..";
 
+    }
+
+    private function testInput($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+
+        return $data;
     }
 
 }
