@@ -1,8 +1,6 @@
 {% set name = 'About us' %}
 {% include 'header.php' %}
 
-<h2>About Us</h2>
-
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris placerat a dui nec interdum. Sed tincidunt sapien
     dolor. Nunc pharetra ipsum et diam maximus varius. Aliquam erat volutpat. Donec bibendum, diam ac viverra volutpat,
     erat tortor dictum mi, vel placerat urna purus vel nunc. Fusce non dapibus sem. Donec aliquet vitae dui a lacinia.
