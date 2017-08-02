@@ -44,5 +44,15 @@ class NewsController extends AbstractController
         return $this->render($template, $templateVariables);
     }
 
+    public function newCommentAction($id)
+    {
+        /** @var \NewsSite\Models\News $news */
+        $news = $this->container->get('model.singleNew');
+
+        $news->addComment($id);
+
+        return $this->singleNewsAction($id);
+    }
+
 
 }
