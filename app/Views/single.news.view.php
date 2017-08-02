@@ -1,12 +1,11 @@
 {% set name = "" %}
+{% set id = "" %}
 {% for new in news %}
 {% set name = new.title %}
+{% set id = new.news_id %}
 {% endfor %}
+
 {% include 'header.php' %}
-
-
-
-
 
 {% for new in news %}
 <small>Created by: {{ new.author }} / {{ new.created_at|time_diff }}</small></br>
