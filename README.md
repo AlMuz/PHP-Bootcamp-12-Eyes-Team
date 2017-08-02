@@ -1,28 +1,6 @@
-####Install Mysql DataBase
-
-`brew install mariadb` - from console, install DB
-
-`mysql.server start` - start mysql as service
-
-`mysql -u root` - login to dabase
-
-`create database bootcamp;` - create database named bootcamp
-
-`use bootcamp;` - switch to new database
-
-`source {PATH_TO_SQL_FILE}` - source to database.sql file .   (source /Users/student/a/database.sql)m
-
-`SELECT * FROM categories;` - let's check that all working fine
-
-example of result
-
-```
-+-------------+---------+----------------------------------------------------+---------------------+
-| category_id | title   | description                                        | created_at          |
-+-------------+---------+----------------------------------------------------+---------------------+
-|           1 | Sport   | You able to find all sport news in this category   | 2017-07-27 02:07:55 |
-|           2 | Politic | You able to find all politic news in this category | 2017-07-27 02:08:32 |
-|           3 | Web     | You able to find all web news in this category     | 2017-07-27 02:08:49 |
-|           4 | PHP     | All php news will be here                          | 2017-07-27 02:09:12 |
-+-------------+---------+----------------------------------------------------+---------------------+
-```
+         How to install our project:
+1. Clone it/download it
+2. Install composer: https://getcomposer.org/download/ - there are all instructions
+3. Install all dependencies with command: php composer.phar install
+4. Install DB: https://github.com/AlMuz/PHP-Bootcamp-12-Eyes-Team/blob/master/DBManual.md - read about this there
+5. Start the localhost with command: php -S localhost:8081 - port, whatever you want

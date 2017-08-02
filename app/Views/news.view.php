@@ -1,9 +1,5 @@
-{% set name = '' %}
-{% for category in categories %}
+{% set name = 'All News' %}
 
-{% set name = category.title %}
-
-{% endfor %}
 {% include 'header.php' %}
 
 <ul>
