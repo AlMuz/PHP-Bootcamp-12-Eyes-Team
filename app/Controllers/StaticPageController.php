@@ -15,4 +15,16 @@ class StaticPageController extends AbstractController
         $template = 'contact.view.php';
         return $this->render($template);
     }
+
+    public function addNewsAction() {
+        /** @var \NewsSite\Models\Categories $categories */
+        $categories = $this->container->get('model.categories');
+
+        $listOfCategories = $categories->getNewsCategory();
+
+        $templateVariables = ['categories' => $listOfCategories];
+        $template = 'news.add.view.php';
+
+        return $this->render($template, $templateVariables);
+    }
 }

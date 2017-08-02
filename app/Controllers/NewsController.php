@@ -31,6 +31,18 @@ class NewsController extends AbstractController
         return $this->render($template, $templateVariables);
     }
 
+    public function addNewsAction()
+    {
+        /** @var \NewsSite\Models\News $news */
+        $news = $this->container->get('model.addNews');
+
+        $news->addNews();
+
+        $template = 'home.view.php';
+
+        return $this->render($template);
+    }
+
     public function singleCategoryAction($id)
     {
         /** @var \NewsSite\Models\Categories $categories */
@@ -43,6 +55,4 @@ class NewsController extends AbstractController
 
         return $this->render($template, $templateVariables);
     }
-
-
 }
