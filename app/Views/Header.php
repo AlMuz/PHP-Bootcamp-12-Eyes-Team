@@ -6,9 +6,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="../../favicon.pngç">
 
-    <title>Web & Mobile Bootcamp Summer 2017</title>
+    <title>12 Eyes Team News Site</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 <div class="blog-masthead">
     <div class="container">
         <nav class="blog-nav">
-            <a class="blog-nav-item active" href="/">Home</a>
+            <a class="blog-nav-item" href="/">Home</a>
             <a class="blog-nav-item" href="/news">News</a>
             <a class="blog-nav-item" href="/about">About Us</a>
             <a class="blog-nav-item" href="/contact">Contact Us</a>
@@ -49,7 +49,7 @@
 
     <div class="blog-header">
         <h1 class="blog-title">{{ name }}</h1>
-        <p class="lead blog-description">PHP Week.</p>
+        <p class="lead blog-description">12 EYES TEAM</p>
     </div>
 
     <div class="row">
