@@ -2,6 +2,7 @@
 
 namespace NewsSite;
 
+use NewsSite\Controllers\EmailController;
 use NewsSite\Controllers\HomeController;
 use NewsSite\Controllers\CategoriesController;
 use NewsSite\Controllers\NewsController;
@@ -95,7 +96,7 @@ class Application
             $categories = new CategoriesController($this->getContainer());
             $news = new NewsController($this->getContainer());
             $staticPage = new StaticPageController($this->getContainer());
-//            $email = new EmailController($this->getContainer());
+            $email = new EmailController($this->getContainer());
 
             $r->addRoute('GET', '/', [$home, 'homeAction']);
             $r->addRoute('GET', '/categories', [$categories, 'CategoryAction']);
@@ -109,7 +110,7 @@ class Application
             $r->addRoute('POST', '/news/{id}/new-comment', [$news, 'newCommentAction']);
             $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
             $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
-//            $r->addRoute('POST', '/send-email', [$email, 'emailAction']);
+            $r->addRoute('POST', '/send-email', [$email, 'emailAction']);
         });
         return $dispatcher;
     }
