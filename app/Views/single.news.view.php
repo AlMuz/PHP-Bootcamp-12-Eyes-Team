@@ -1,7 +1,7 @@
 {% set name = "" %}
 {% for new in news %}
 
-    {% set name = new.title %}
+{% set name = new.title %}
 
 {% endfor %}
 

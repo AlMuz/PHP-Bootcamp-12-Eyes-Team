@@ -27,7 +27,7 @@ class Application
             ->addArgument(
                 [
                     'database_type' => 'mysql',
-                    'database_name' => 'twelveeyes',
+                    'database_name' => 'bootcamp',
                     'server' => 'localhost',
                     'username' => 'root',
                     'password' => ''
