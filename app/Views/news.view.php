@@ -2,7 +2,9 @@
 
 {% include 'header.php' %}
 
-<a href="/news/add">Add A New</a>
+<div style="border: 1px solid blue; width: 150px; display: flex; justify-content: center; margin-bottom: 10px;">
+    <a href="/news/add">Add A New</a>
+</div>
 
 <ul>
     {% for new in news %}
