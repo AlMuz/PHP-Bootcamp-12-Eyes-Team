@@ -1,7 +1,6 @@
 {% set name = 'Home' %}
 {% include 'header.php' %}
 
-<h1>Our Latest News | <a href="/news">See All News</a></h1>
 <div class="row">
 
     <div class="col-md-8">

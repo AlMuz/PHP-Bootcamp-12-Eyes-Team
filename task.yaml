@@ -9,5 +9,3 @@ Stuff we can improve:
     StaticPageController: We can put all the static pages (about us, contact us) in one controller since there is only template and nothing else.
     CategoryRepo: We can move getCategoriesNews function to NewsRepository since it fetches data from news table in database.
     Database name: We should make our local database names the same so we don't have to change it every time in Application.
-
-Any other suggestions?
