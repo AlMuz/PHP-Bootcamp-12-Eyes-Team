@@ -52,6 +52,9 @@ class Application
             ->addArgument(new Reference('repository.news'));
         $containerBuilder->register('model.latestNews', '\NewsSite\Models\News')
             ->addArgument(new Reference('repository.news'));
+        $containerBuilder->register('model.addNews', '\NewsSite\Models\News')
+            ->addArgument(new Reference('repository.news'));
+
 
         $containerBuilder->register('twig.loader', '\Twig_Loader_Filesystem')
             ->addArgument('%resource.views%');
@@ -96,9 +99,11 @@ class Application
             $r->addRoute('GET', '/category', [$categories, 'CategoryAction']);
             $r->addRoute('GET', '/category/{id}', [$news, 'singleCategoryAction']);
             $r->addRoute('GET', '/news', [$news, 'newsAction']);
+            $r->addRoute('GET', '/news/add', [$staticPage, 'addNewsAction']);
             $r->addRoute('GET', '/news/{id}', [$news, 'singleNewsAction']);
             $r->addRoute('GET', '/about', [$staticPage, 'aboutAction']);
             $r->addRoute('GET', '/contact', [$staticPage, 'contactAction']);
+            $r->addRoute('POST', '/news/add', [$news, 'addNewsAction']);
         });
         return $dispatcher;
     }

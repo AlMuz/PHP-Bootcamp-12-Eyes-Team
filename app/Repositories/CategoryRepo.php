@@ -8,7 +8,5 @@ class CategoryRepo extends Repository
     public function getNewsCategory()
     {
         return $this->db->select('categories', '*');
-
     }
-
 }

@@ -2,6 +2,8 @@
 
 {% include 'header.php' %}
 
+<a href="/news/add">Add A New</a>
+
 <ul>
     {% for new in news %}
     <li><a href="/news/{{new.news_id}}">{{ new.title }}</a> |
