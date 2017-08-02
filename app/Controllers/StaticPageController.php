@@ -34,4 +34,15 @@ class StaticPageController extends AbstractController
         $template = 'category.add.view.php';
         return $this->render($template);
     }
+
+    public function emailAction()
+    {
+        /** @var \NewsSite\Models\Email $email */
+        $email = $this->container->get('model.email');
+
+        $email->sendEmail();
+
+        return $this->contactAction();
+
+    }
 }

@@ -21,9 +21,9 @@ class Email
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         $headers .= 'From: ' . $from . "\r\n";
 
-        mail($to,$subject,$email,$headers);
+        mail($to, $subject, $email, $headers);
 
-        $confirmation =  "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
+        $confirmation = "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
         echo "<script type='text/javascript'>alert('$confirmation');</script>";
 
     }
