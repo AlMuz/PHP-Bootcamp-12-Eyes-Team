@@ -35,7 +35,8 @@ class News implements NewsModelInterface
     {
         return $this->commentRepository->getComments($id);
     }
-    public function  getSingleCategory($id) :array
+
+    public function getSingleCategory($id): array
     {
         return $this->newsRepository->getCategoriesNews($id);
     }

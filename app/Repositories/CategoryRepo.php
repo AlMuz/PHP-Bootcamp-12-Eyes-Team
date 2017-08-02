@@ -1,5 +1,7 @@
 <?php
+
 namespace NewsSite\Repositories;
+
 class CategoryRepo extends Repository
 {
     /** this get all categories */
