@@ -40,6 +40,7 @@
         <nav class="blog-nav">
             <a class="blog-nav-item" href="/">Home</a>
             <a class="blog-nav-item" href="/news">News</a>
+            <a class="blog-nav-item" href="/categories">Categories</a>
             <a class="blog-nav-item" href="/about">About Us</a>
             <a class="blog-nav-item" href="/contact">Contact Us</a>
         </nav>

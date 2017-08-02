@@ -18,5 +18,15 @@ class CategoriesController extends AbstractController
         return $this->render($template, $templateVariables);
     }
 
+    public function addCategoryAction()
+    {
+        /** @var \NewsSite\Models\Categories $news */
+        $category = $this->container->get('model.addCategory');
 
+        $category->addCategory();
+
+        $template = 'home.view.php';
+
+        return $this->render($template);
+    }
 }
