@@ -1,6 +1,9 @@
 <?php
+
 namespace NewsSite\Models;
+
 use NewsSite\Repositories\CategoryRepo;
+
 class Categories implements CategoriesInterface
 {
     private $CategoryRepo;
@@ -10,7 +13,7 @@ class Categories implements CategoriesInterface
         $this->CategoryRepo = $CategoryRepo;
     }
 
-    public function getNewsCategory() : array
+    public function getNewsCategory(): array
     {
         return $this->CategoryRepo->getNewsCategory();
     }

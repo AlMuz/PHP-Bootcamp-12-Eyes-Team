@@ -20,7 +20,7 @@ class NewsRepository extends Repository
     }
 
     /** get the news about 1 category */
-    public function  getCategoriesNews($id)
+    public function getCategoriesNews($id)
     {
         //   dump($this->db->select('news', ["[>]categories" => ["category_id" => "category_id"]],["news.news_id","news.author", "news.created_at","news.body","categories.title"] ,['category_id' => $id] ));
 
