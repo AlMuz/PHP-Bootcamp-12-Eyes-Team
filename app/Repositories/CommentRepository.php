@@ -9,13 +9,13 @@ class CommentRepository extends Repository
         return $this->db->select('comments', '*', ['news_id' => $id]);
     }
 
-    public function addComment($id)
+    public function addComment($id, $author, $comment)
     {
         if (isset($_POST['author']) && isset($_POST['comment'])) {
 
             $news_id = $id;
-            $author = $this->testInput($_POST['author']);
-            $comment = $this->testInput($_POST['comment']);
+            $author = $this->testInput($author);
+            $comment = $this->testInput($comment);
 
             $this->db->insert(
                 'comments',

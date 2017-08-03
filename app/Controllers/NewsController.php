@@ -22,7 +22,13 @@ class NewsController extends AbstractController
         /** @var \NewsSite\Models\News $news */
         $news = $this->container->get('model.addNews');
 
-        $news->addNews();
+        $category = $_POST["category"];
+        $title = $_POST["title"];
+        $body = $_POST["body"];
+        $author = $_POST["author"];
+        $date = date("Y-m-d H:i:s");
+
+        $news->addNews($category, $title, $body, $author, $date);
 
         $template = 'home.view.php';
 
@@ -47,7 +53,10 @@ class NewsController extends AbstractController
         /** @var \NewsSite\Models\News $news */
         $news = $this->container->get('model.singleNew');
 
-        $news->addComment($id);
+        $author = $_POST['author'];
+        $comment = $_POST['comment'];
+
+        $news->addComment($id, $author, $comment);
 
         return $this->singleNewsAction($id);
     }

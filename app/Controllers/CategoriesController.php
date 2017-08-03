@@ -22,7 +22,10 @@ class CategoriesController extends AbstractController
         /** @var \NewsSite\Models\Categories $news */
         $category = $this->container->get('model.addCategory');
 
-        $category->addCategory();
+        $title = $_POST["category"];
+        $date = date("Y-m-d H:i:s");
+
+        $category->addCategory($title, $date);
 
         $template = 'home.view.php';
 

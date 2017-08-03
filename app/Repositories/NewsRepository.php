@@ -9,14 +9,14 @@ class NewsRepository extends Repository
         return $this->db->select('news', '*', ['ORDER' => ['created_at' => 'DESC']]);
     }
 
-    public function addNews()
+    public function addNews($category, $title, $body, $author, $date)
     {
         return $this->db->insert('news', [
-            'category_id' => $_POST["category"],
-            'title' => $_POST["title"],
-            'body' => $_POST["body"],
-            'author' => $_POST["author"],
-            'created_at' => date("Y-m-d H:i:s")
+            'category_id' => $category,
+            'title' => $title,
+            'body' => $body,
+            'author' => $author,
+            'created_at' => $date
         ]);
     }
 

@@ -6,5 +6,5 @@ interface CategoriesInterface
 {
     public function getNewsCategory(): array;
 
-    public function addCategory();
+    public function addCategory($title, $date);
 }
