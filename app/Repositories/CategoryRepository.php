@@ -10,11 +10,11 @@ class CategoryRepository extends Repository
         return $this->db->select('categories', '*');
     }
 
-    public function addCategory()
+    public function addCategory($title, $date)
     {
         return $this->db->insert('categories', [
-            'title' => $_POST["category"],
-            'created_at' => date("Y-m-d H:i:s")
+            'title' => $title,
+            'created_at' => $date
         ]);
     }
 }

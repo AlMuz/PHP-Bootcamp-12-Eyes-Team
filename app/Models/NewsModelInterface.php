@@ -6,7 +6,7 @@ interface NewsModelInterface
 {
     public function getNews(): array;
 
-    public function addNews();
+    public function addNews($category, $title, $body, $author, $date);
 
     public function getSingleNew($id): array;
 
@@ -14,7 +14,7 @@ interface NewsModelInterface
 
     public function getComments($id): array;
 
-    public function addComment($id);
+    public function addComment($id, $author, $comment);
 
     public function getSingleCategory($id): array;
 }

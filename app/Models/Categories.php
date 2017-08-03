@@ -18,8 +18,8 @@ class Categories implements CategoriesInterface
         return $this->CategoryRepo->getNewsCategory();
     }
 
-    public function addCategory()
+    public function addCategory($title, $date)
     {
-        return $this->CategoryRepo->addCategory();
+        return $this->CategoryRepo->addCategory($title, $date);
     }
 }

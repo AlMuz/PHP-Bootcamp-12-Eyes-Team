@@ -21,9 +21,9 @@ class News implements NewsModelInterface
         return $this->newsRepository->getNews();
     }
 
-    public function addNews()
+    public function addNews($category, $title, $body, $author, $date)
     {
-        return $this->newsRepository->addNews();
+        return $this->newsRepository->addNews($category, $title, $body, $author, $date);
     }
 
     public function getSingleNew($id): array
@@ -46,8 +46,8 @@ class News implements NewsModelInterface
         return $this->newsRepository->getCategoriesNews($id);
     }
 
-    public function addComment($id)
+    public function addComment($id, $author, $comment)
     {
-        return $this->commentRepository->addComment($id);
+        return $this->commentRepository->addComment($id, $author, $comment);
     }
 }
