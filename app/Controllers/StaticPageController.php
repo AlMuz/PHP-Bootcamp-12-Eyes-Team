@@ -40,7 +40,12 @@ class StaticPageController extends AbstractController
         /** @var \NewsSite\Models\Email $email */
         $email = $this->container->get('model.email');
 
-        $email->sendEmail();
+        $name = $_POST['name'];
+        $emailToSend = $_POST['email'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
+
+        $email->sendEmail($name, $emailToSend, $subject, $message);
 
         return $this->contactAction();
 
