@@ -4,14 +4,14 @@ namespace NewsSite\Models;
 
 class Email
 {
-    public function sendEmail()
+    public function sendEmail($name, $email, $subject, $message)
     {
         $to = "newssite@12eyes.com";
 
-        $name = $this->testInput($_POST['name']);
-        $from = $this->testInput($_POST['email']);
-        $subject = $this->testInput($_POST['subject']);
-        $message = $this->testInput($_POST['message']);
+        $name = $this->testInput($name);
+        $from = $this->testInput($email);
+        $subject = $this->testInput($subject);
+        $message = $this->testInput($message);
 
         $email = $name . " <" . $from . "> wrote the following:" . "\r\n" . $message;
 
